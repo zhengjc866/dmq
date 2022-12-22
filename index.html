@@ -19,7 +19,7 @@
         timer = setInterval(function() {
           currentPlayer = Math.floor(Math.random()*46);//(currentPlayer + 1) % players.length;
           document.getElementById('current-player').innerHTML = players[currentPlayer];
-        }, 30);
+        }, 50);
         document.getElementById('start-button').disabled = true;
         document.getElementById('stop-button').disabled = false;
         audio.play();
