@@ -1,0 +1,34 @@
+<html>
+  <head>
+    <title>点名器</title>
+  </head>
+  <body style="font-size: 50px;">
+    <h1>点名器</h1>
+    <button style="height:80px;width:200px;font-size: 30px;" id="start-button" onclick="startGame()">开始点名</button>
+    <button style="height:80px;width:200px;font-size: 30px;" id="stop-button" onclick="stopGame()">停止点名</button>
+    <p id="current-player"></p>
+
+    <script>
+      let players = ['蔡依霖','曹译之','陈润麒','陈文隽','陈子荣','陈梓荧','程强','邓钧豪','郭逸朗','黄浩翔','黄芷晴','赖奕昊','李君浩','李想','李晓彤','李志谦','梁恩杰','梁希铟','梁贤志','梁宇轩','廖伟森','林圣杰','刘昊臻','刘耀楷','卢杰怡','罗琬昕','马栩晴','马滢滢','缪幸桐','潘文欣','彭思畅','谭雪瑶','王琰','王紫彤','吴思颖','吴紫晴','杨桦仁','张奥琳','张乐希','赵佳盈','赵起','赵梓杰','郑嘉铠','郑建聪','郑启耀','郑欣桐','钟蓝腾','钟尚恩'];
+      let timer;
+      let currentPlayer = 0;
+
+      function startGame() {
+        timer = setInterval(function() {
+          currentPlayer = Math.floor(Math.random()*48);//(currentPlayer + 1) % players.length;
+          document.getElementById('current-player').innerHTML = players[currentPlayer];
+        }, 30);
+        document.getElementById('start-button').disabled = true;
+        document.getElementById('stop-button').disabled = false;
+      }
+
+      function stopGame() {
+        clearInterval(timer);
+        const name = players[currentPlayer];
+        //alert(`${name} 获胜！`);
+        document.getElementById('start-button').disabled = false;
+        document.getElementById('stop-button').disabled = true;
+      }
+    </script>
+  </body>
+</html>
